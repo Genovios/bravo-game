@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#clickerContainer, #shopContainer {
+  display: inline-block;
+  margin: 20px;
+  background-color: white;
+  border: 10px;
+  border-style: solid;
+  border-color: black;
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#punchBag {
+  height: 200px;
+  width: 200px;
+}
+
+#gamespace {
+  background-image: url(../assets/gymArea.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.footer {
+  background-color: black;
+}
+
+.nav-link-active {
+  color: white;
+}

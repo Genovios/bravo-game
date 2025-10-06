@@ -1,0 +1,30 @@
+#tutoTop {
+  justify-content: center;
+  margin: 50px;
+}
+
+#tutoPic {
+  justify-content: right;
+  width: 200px;
+  height: 200px;
+}
+
+#tutoBox {
+  display: inline-block;
+  justify-content: center;
+  margin: 10px;
+}
+
+#keyterms {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-left: 30px;
+}
+
+#termList {
+  margin: 30px;
+}
+
+#termItem {
+  margin: 20px;
+}

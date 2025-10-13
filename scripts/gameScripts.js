@@ -1,12 +1,13 @@
+
 $(document).ready(() => {
     console.log("Succesfully loaded!");
 
-    const userName = " ";
-    const powerScore = 0;
-    const clickVal = 0;
+    // todo 1. save auser name in lcoal check 
+    // todo 2. read the local name. 
 
-    getData();
-    console.log("userName ", userName);
+    let userStuff = [];
+
+    displayUserData();
 
     if (!localStorage.getItem('gameState')) {
         const gameState = {
@@ -62,6 +63,7 @@ $(document).ready(() => {
 
             displayUpdate(gs);
             saveGame(gs);
+
         }
 
         else {
@@ -70,7 +72,7 @@ $(document).ready(() => {
     });
 
     setInterval(() => {
-        if(gs.autoPunch > 0) {
+        if (gs.autoPunch > 0) {
             gs.power += gs.autoPunch;
             displayUpdate(gs);
             saveGame(gs);
@@ -139,6 +141,38 @@ $(document).ready(() => {
     displayUpdate(gs);
     saveGame(gs);
 
+    $("#settings").on("submit", function (event) {
+
+        if ("#nameInput") {
+
+            if (!gs.cheatFlag) {
+
+                console.log("No Cheat Detected");
+
+                userName = $("#userName").val();
+                // powerScore = $("#power").html();
+                // clickVal = $("#clickScore");
+
+                saveData(userName, power, clickScore);
+
+                alert("Highscore saved!");
+
+            };
+
+            if (gs.cheatFlag) {
+                console.log("Cheat Detected");
+                alert("Uh-oh, you've cheated! Your highscore can't be saved...");
+            }
+        }
+    });
+
+    function displayUserData() {
+        userStuff = getData();
+        console.log("userName ", userStuff[0]);
+        $('.highscores').append(userStuff[0], "- Power: ", userStuff[1], ", Lifetime Clicks: ", userStuff[2]);
+
+    }
+
 });
 
 function saveGame(gs) {
@@ -146,28 +180,21 @@ function saveGame(gs) {
     console.log(gs);
 };
 
-function saveData(userName, powerVal, clickVal) {
-    localStorage.setItem("userName", userName);
-    localStorage.setItem("powerScore", powerScore);
-    localStorage.setItem("clickVal", clickVal);
+function saveData(userNameP, powerValP, clickValP) {
+
+    localStorage.setItem("userName", userNameP);
+    localStorage.setItem(gs.power, powerValP);
+    localStorage.setItem(gs.clickScore, clickValP);
+
+    console.log("saveData status: ", userName);
+    console.log("saveData status: ", powerValP);
+    console.log("saveData status: ", clickValP);
 };
 
 function getData() {
-    userName = localStorage.getItem("userName");
-    powerVal = localStorage.getItem("powerScore");
-    clickVal = localStorage.getItem("clickVal");
+    //these vars arent the same at teh otehrs in doc load and all. scoping. Can't see? 
+    userNameX = localStorage.getItem("userName");
+    powerValX = localStorage.getItem("powerScore");
+    clickValX = localStorage.getItem("clickVal");
+    return [userNameX, powerValX, clickValX];
 };
-
-$("#settings").on("submit", function (event) {
-
-    event.preventDefault();
-
-    userName = $("userName").val;
-    powerScore = $("power");
-    clickVal = $("clickScore");
-
-    saveData(userName, powerScore, clickVal);
-
-    alert("Highscore saved!");
-    console.log("userName ", userName);
-});

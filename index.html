@@ -1,6 +1,9 @@
+<!-- Start of File -->
+
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Metadata -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,17 +18,21 @@
 
 </head>
 
+<!-- Start of Body -->
 <body id="gamespace">
 
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-sm">
     <div class="container-fluid justify-content-center">
       <ul class="navbar-nav">
 
         <li class="nav-item">
-          <a class="nav-link-active" aria-current="page" href="pages/tutorial.html" target="_blank">How to Play</a>
+          <a class="nav-link-active" aria-current="page" href="pages/tutorial.html" target="_blank">How to Play &nbsp;</a>
         </li>
 
-        <li></li>
+        <li>
+          <a class="nav-link-active" aria-current="page" href="pages/scoreboard.html" target="_blank">Highscore (Unfinished)&nbsp;</a>
+        </li>
 
         <li class="nav-item">
           <a class="nav-link-active" aria-current="page" href="https://genovios.github.io/Genovios/" target="_blank">Dev
@@ -36,6 +43,7 @@
     </div>
   </nav>
 
+  <!-- Gamespace: Clicking Area -->
   <div id="clickerContainer">
     <h1>Punching Bag Game</h1>
     <p>Power: <span id="power">0</span></p>
@@ -45,6 +53,7 @@
     <p>Lifetime Clicks: <span id="clickScore">0</span></p>
   </div>
 
+  <!-- Gamespace: Training (Shop) Area -->
   <div id="shopContainer">
     <h2>Training</h2>
     <p>Punching Strength: <span id="powGain">1</span></p>
@@ -54,6 +63,7 @@
     <button id="buyAPButton">Buy Auto Puncher (Cost: <span id="apCost">25</span> Power)</button>
   </div>
 
+  <!-- Gamespace: Settings Area -->
   <form id="settings" class="aligningItems">
     <p>Settings</p>
     <label id="nameInput">Enter Name to Save Highscore: </label>
@@ -63,28 +73,30 @@
     <button id="resetButton">Reset Progress</button>
   </form>
 
+  <!-- Footer With Links -->
   <footer>
 
     <a class="nav-link-active" aria-current="page" href="https://genovios.github.io/Genovios/" target="_blank">
-      Dev Page
+      Dev Page &nbsp;
     </a>
     <a class="nav-link-active" aria-current="page" href="https://github.com/Genovios/punching-bag-game" target="_blank">
-      Game Repository
+      Game Repository &nbsp;
     </a>
     <a class="nav-link-active" aria-current="page" href="https://github.com/Genovios" target="_blank">
-      Github Profile
+      Github Profile &nbsp;
     </a>
     <a class="nav-link-active" aria-current="page"
       href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fgenovios.github.io%2Fpunching-bag-game%2F" target="_blank">
-      NU Validation Check
+      NU Validation Check &nbsp;
     </a>
     <a class="nav-link-active" aria-current="page"
       href="https://wave.webaim.org/report#/https://genovios.github.io/punching-bag-game/" target="_blank">
-      WAVE Validation Check
+      WAVE Validation Check &nbsp;
     </a>
 
   </footer>
 
+  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 

@@ -1,3 +1,5 @@
+// storage.js is currently unused
+
 /* $(document).ready( () => {
 
   function saveData(userName, powerVal, clickVal) {

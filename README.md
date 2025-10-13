@@ -37,6 +37,7 @@ $('#punchBag').on('click', () => {
 
 ```
 ## Wireframe:
-PBG-WireframeFinal.png
+![Game Wireframe](assets/PBG-WireframeFinal.png)
+
 
 

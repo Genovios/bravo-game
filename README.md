@@ -37,4 +37,5 @@ $('#punchBag').on('click', () => {
 
 ```
 ## Wireframe:
-(/assets/PBG-WireframeFinal.png)
+(./assets/PBG-WireframeFinal.png)
+

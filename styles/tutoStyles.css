@@ -9,6 +9,10 @@
   height: 200px;
 }
 
+#tutoTitle {
+  margin: 20px;
+}
+
 #tutoBox {
   display: inline-block;
   justify-content: center;
@@ -27,4 +31,9 @@
 
 #termItem {
   margin: 20px;
+}
+
+#tutoPage {
+  background-color: lightcoral;
+  color: black;
 }

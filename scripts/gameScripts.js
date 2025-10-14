@@ -148,6 +148,16 @@ $(document).ready(() => {
     displayUpdate(gs);
     saveGame(gs);
 
+    //if user has 69 lifetime clicks and 69 power at the same time, alert is displayed
+    function easterEgg() {
+        if(gs.power == 69) {
+            if(gs.clickScore == 69) {
+                alert("69... Nice!");
+            }
+        }
+    };
+
+
     //saves user's name and highscore (unfinished?)
     $("#settings").on("submit", function (event) {
 
@@ -211,14 +221,5 @@ function getData() {
     clickValX = localStorage.getItem("clickVal");
     return [userNameX, powerValX, clickValX];
 
-};
-
-//if user has 69 lifetime clicks and 69 power at the same time, alert is displayed
-function easterEgg() {
-    if(gs.power == 69) {
-        if(gs.clickScore == 69) {
-            alert("69... Nice!");
-        }
-    }
 };
 

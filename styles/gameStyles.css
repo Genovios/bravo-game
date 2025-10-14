@@ -8,7 +8,8 @@ body {
 #clickerContainer, #shopContainer {
   display: inline-block;
   margin: 20px;
-  background-color: white;
+  --main-background-color: white;
+  background-color: var(--main-background-color);
   border: 10px;
   border-style: solid;
   border-color: rgba(128, 30, 0, 0.904);
@@ -36,7 +37,8 @@ button {
 }
 
 footer {
-  background-color: black;
+  --foot-bg-color: black;
+  background-color: var(--foot-bg-color);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -44,7 +46,8 @@ footer {
 }
 
 .navbar {
-  background-color: black;
+  --nav-bg-color: black;
+  background-color: var(--nav-bg-color);
   position: top;
   top: 0;
   width: 100%;
@@ -66,3 +69,4 @@ footer {
   color: white;
   text-decoration: none;
 }
+

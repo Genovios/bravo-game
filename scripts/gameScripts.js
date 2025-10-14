@@ -87,8 +87,6 @@ $(document).ready(() => {
             gs.power -= gs.powPrice;
             gs.powGain++;
             gs.powPrice *= 2;
-
-            easterEgg(); //Easter Egg function (see bottom of file)
             
             displayUpdate(gs);
             saveGame(gs);
@@ -104,8 +102,8 @@ $(document).ready(() => {
         gs.power += gs.powGain;
         gs.clickScore += 1;
 
-        console.log("Button clicked");
-
+        easterEgg(); //Easter Egg function check (see bottom of file)
+        
         displayUpdate(gs);
         saveGame(gs);
 
@@ -217,9 +215,10 @@ function getData() {
 
 //if user has 69 lifetime clicks and 69 power at the same time, alert is displayed
 function easterEgg() {
-    if(gs.clickScore == 69) {
-        if(gs.power == 69) {
+    if(gs.power == 69) {
+        if(gs.clickScore == 69) {
             alert("69... Nice!");
         }
     }
 };
+

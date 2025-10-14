@@ -1,14 +1,13 @@
 
 $(document).ready(() => {
     console.log("Succesfully loaded!");
-
-    // todo 1. save auser name in lcoal check 
-    // todo 2. read the local name. 
+    console.log("Get 69 Lifetime Clicks with a total of 69 Power for a nice surprise!");
 
     let userStuff = [];
 
     displayUserData();
 
+    //sets game state if no previous save / game state is detected
     if (!localStorage.getItem('gameState')) {
         const gameState = {
 
@@ -37,6 +36,7 @@ $(document).ready(() => {
 
     const gs = JSON.parse(localGame);
 
+    //setting displayed values to appropriate variable values
     const $powerDisplay = $('#power');
     const $powGainDisplay = $('#powGain');
     const $powPriceDisplay = $('#powPrice');
@@ -44,6 +44,7 @@ $(document).ready(() => {
     const $apCostDisplay = $('#apCost');
     const $csDisplay = $('#clickScore');
 
+    //updates the game's display
     function displayUpdate(gs) {
         $powerDisplay.text(gs.power);
         $powGainDisplay.text(gs.powGain);
@@ -52,9 +53,9 @@ $(document).ready(() => {
         $apCostDisplay.text(gs.apCost);
         $csDisplay.text(gs.clickScore);
 
-        console.log(power);
     };
 
+    //allows user to buy autopunch (punch per second)
     $('#buyAPButton').on('click', () => {
         if (gs.power >= gs.apCost) {
             gs.power -= gs.apCost;
@@ -71,6 +72,7 @@ $(document).ready(() => {
         }
     });
 
+    //sets auto punch to activate every 1 second
     setInterval(() => {
         if (gs.autoPunch > 0) {
             gs.power += gs.autoPunch;
@@ -79,11 +81,15 @@ $(document).ready(() => {
         }
     }, 1000);
 
+    //allows user to upgrade amount of power earned per click
     $('#buyPowerButton').on('click', () => {
         if (gs.power >= gs.powPrice) {
             gs.power -= gs.powPrice;
             gs.powGain++;
             gs.powPrice *= 2;
+
+            easterEgg(); //Easter Egg function (see bottom of file)
+            
             displayUpdate(gs);
             saveGame(gs);
         }
@@ -93,6 +99,7 @@ $(document).ready(() => {
         }
     });
 
+    //allows user to earn power on a click
     $('#punchBag').on('click', () => {
         gs.power += gs.powGain;
         gs.clickScore += 1;
@@ -105,6 +112,7 @@ $(document).ready(() => {
         console.log(gs.power);
     });
 
+    //resets game state to default
     $('#resetButton').on('click', () => {
         let resetApproval = confirm("This button resets all progress to the default state. Are you certain you wish to reset?");
         if (resetApproval) {
@@ -126,6 +134,7 @@ $(document).ready(() => {
         };
     });
 
+    //increases all power gain values as a means to cheat the game
     $('#cheatButton').on('click', () => {
         let cheatApproval = confirm("Are you sure you want to enable cheats? (Must reset to revert.)")
 
@@ -141,6 +150,7 @@ $(document).ready(() => {
     displayUpdate(gs);
     saveGame(gs);
 
+    //saves user's name and highscore (unfinished?)
     $("#settings").on("submit", function (event) {
 
         if ("#nameInput") {
@@ -159,6 +169,7 @@ $(document).ready(() => {
 
             };
 
+            //if user has activated cheats, highscore is not saved
             if (gs.cheatFlag) {
                 console.log("Cheat Detected");
                 alert("Uh-oh, you've cheated! Your highscore can't be saved...");
@@ -166,6 +177,7 @@ $(document).ready(() => {
         }
     });
 
+    //displays user data for highscore (unfinished, unused)
     function displayUserData() {
         userStuff = getData();
         console.log("userName ", userStuff[0]);
@@ -175,11 +187,13 @@ $(document).ready(() => {
 
 });
 
+//saves the user's game state
 function saveGame(gs) {
     localStorage.setItem('gameState', JSON.stringify(gs));
     console.log(gs);
 };
 
+//saves the user's data for highscore (not essential for game to work)
 function saveData(userNameP, powerValP, clickValP) {
 
     localStorage.setItem("userName", userNameP);
@@ -191,10 +205,21 @@ function saveData(userNameP, powerValP, clickValP) {
     console.log("saveData status: ", clickValP);
 };
 
+//returns the user's data 
 function getData() {
     //these vars arent the same at teh otehrs in doc load and all. scoping. Can't see? 
     userNameX = localStorage.getItem("userName");
     powerValX = localStorage.getItem("powerScore");
     clickValX = localStorage.getItem("clickVal");
     return [userNameX, powerValX, clickValX];
+
+};
+
+//if user has 69 lifetime clicks and 69 power at the same time, alert is displayed
+function easterEgg() {
+    if(gs.clickScore == 69) {
+        if(gs.power == 69) {
+            alert("69... Nice!");
+        }
+    }
 };

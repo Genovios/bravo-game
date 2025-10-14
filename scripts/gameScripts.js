@@ -97,27 +97,23 @@ $(document).ready(() => {
         }
     });
 
-    //if user has 69 lifetime clicks and 69 power at the same time, alert is displayed
-    function easterEgg() {
-        if(gs.power == 69) {
-            if(gs.clickScore == 69) {
-                console.log("Easter egg complete...nice work!);
-                alert("69... Nice!");
-            }
-        }
-    };
-
     //allows user to earn power on a click
     $('#punchBag').on('click', () => {
         gs.power += gs.powGain;
         gs.clickScore += 1;
-
-        easterEgg(); //Easter Egg function check (see easterEgg function)
         
         displayUpdate(gs);
         saveGame(gs);
 
         console.log(gs.power);
+
+        //easter egg check
+        if(gs.power == 69) {
+            if(gs.clickScore == 69) {
+                alert("69 is NICE!");
+            }
+        }
+        
     });
 
     //resets game state to default
@@ -223,5 +219,6 @@ function getData() {
     return [userNameX, powerValX, clickValX];
 
 };
+
 
 
